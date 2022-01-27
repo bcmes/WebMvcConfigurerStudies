@@ -7,7 +7,7 @@ import org.springframework.web.context.request.NativeWebRequest
 import org.springframework.web.method.support.HandlerMethodArgumentResolver
 import org.springframework.web.method.support.ModelAndViewContainer
 
-class MyHandlerMethodArgumentResolver : HandlerMethodArgumentResolver {
+class BArgumentResolver : HandlerMethodArgumentResolver {
     override fun supportsParameter(parameter: MethodParameter): Boolean {
         return parameter.parameterType == QuestionRequest::class.java
     }
@@ -17,7 +17,7 @@ class MyHandlerMethodArgumentResolver : HandlerMethodArgumentResolver {
         mavContainer: ModelAndViewContainer?,
         webRequest: NativeWebRequest,
         binderFactory: WebDataBinderFactory?
-    ): Any? {
-        return QuestionRequest("Argumento QuestionRequest dos controllers e resolvido por aqui.")
+    ): Any {
+        return QuestionRequest("Argumento QuestionRequest dos controllers e resolvido por um HandlerMethodArgumentResolver personalizado.")
     }
 }
