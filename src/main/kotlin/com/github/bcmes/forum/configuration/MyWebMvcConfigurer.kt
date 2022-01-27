@@ -5,8 +5,11 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
-class AWebMvcConfigurer : WebMvcConfigurer {
+class MyWebMvcConfigurer : WebMvcConfigurer {
+    /** Adiciona resolvedores de argumentos para o Controller,
+     * para os tipos que nao puderam ser resolvidos.
+     */
     override fun addArgumentResolvers(resolvers: MutableList<HandlerMethodArgumentResolver>) {
-        resolvers.add(BArgumentResolver())
+        resolvers.add(ArgumentResolverQuestionRequest())
     }
 }
